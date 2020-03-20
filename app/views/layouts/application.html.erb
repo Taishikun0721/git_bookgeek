@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookgeek</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="padding: 5rem;">
+      <div class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+        <a href="/" class="navbar-brand">Bookgeek</a>
+        <ul class="navbar-nav nav-pills ml-auto">
+          <li class="nav-item"><a href= "/users/sign_up" class="nav-link">新規登録</a></li>
+          <li class="nav-item"><a href="/users/sign_out" data-method="delete" class="nav-link">サインアウト</a></li>
+        </ul>
+      </div> 
+      <%= notice %>
+    <div class = "container_fluid">  
+      <%= yield %>
+    </div>  
+    <div class="navbar navbar-expand nabvar-dark bg-dark fixed-bottom">
+      <a href="/" class="navbar-brand text-white ml-auto mr-auto">©Inokuchi Taishiro</a>
+    </div>
+  </body>
+</html>

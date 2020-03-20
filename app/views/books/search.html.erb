@@ -1,0 +1,16 @@
+<div class="row justify-content-center"style="margin:50px;padding:10px;">
+    <% if @books.present? %>
+        <% @books.each do |book| %>
+            <div class="col-3" style="height:300px;text-align:center;">
+                <h1>We found!!</h1>
+                <a href=<%="/books/#{book.id}" %>><img class="d-block mx-auto"src='<%= book.image_url %>'></a>
+                <p><%= book.title %></p>
+            </div>
+        <% end %>
+    <% else %>
+        <div class="col-12" style="height:300px;text-align:center;">
+            <h1>Sorry Not Found books you want</h1>
+            <img src='https://image.shutterstock.com/image-vector/handwritten-lettering-apologize-calligraphic-word-260nw-1532028197.jpg' class="mt-5">
+        </div>
+    <% end %> 
+</div>

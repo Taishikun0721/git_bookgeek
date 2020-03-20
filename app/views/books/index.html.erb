@@ -1,0 +1,30 @@
+<div style="background-color:#E9EB87;"><%= flash[:success] %></div>
+<div class="row">
+    <div class="col-12 text-center"><h1>Book makes life better </h1>
+    <p>ここではビジネスですぐに役に立つ考え方が学べる本を紹介します。<br>
+        みなさんでレビューをして、より上質な情報をシェアしましょう
+    </p>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <img src='https://www.kindpng.com/picc/m/102-1025682_kids-book-png-children-books-transparent-png.png' class="img-fluid" style="width:1300px;"></div>
+    </div>
+</div>
+<div class="row justify-content-center"style="margin:50px;padding:10px;">
+    <% @books.each do |book| %>
+        <div class="col-3" style="height:300px;text-align:center;">
+            <a href=<%="/books/#{book.id}" %>><img class="d-block mx-auto"src='<%= book.image_url %>'></a>
+            <p><%= book.title %></p>
+        </div>
+    <% end %>
+</div>
+<div class="row text-center">
+    <div class="col-12">
+        <%= form_with url: search_books_path, method: :get, local: true do |f| %>
+            <%= f.text_field :title%>
+            <%= f.submit :search%>
+        <% end %>
+    </div>
+</div>
+<%= paginate @books %>

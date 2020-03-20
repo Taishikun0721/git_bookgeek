@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-12" style="margin-top:50px;">
+        <h1 class="text-center">レビューを更新する</h1>
+        <div class="text-center">
+            <%= form_for [@book,@review] do |f| %>
+                <div style="margin-top:30px; border-radius:5px;">
+                    <%= f.text_area :review,:size =>"45x10"%>
+                </div>
+                <div style="margin-top:30px;">
+                    <%= button_tag type="更新する" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
