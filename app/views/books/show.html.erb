@@ -18,7 +18,7 @@
         <ul class="text-left botrder-bottom mb-3">
             <% @book.reviews.each do |review| %>
                 <li>
-                    <h3 class="text-left border-bottom border-info"><%= image_tag review.user.image %><%= review.user.nickname %></h3>
+                    <h3 class="text-left border-bottom border-info"><%= image_tag review.user.thumbnail, :class => 'rounded-circle' %><%= review.user.nickname %></h3>
                     <p><%= review.review %></p>
                     <button class="btn btn-outline-primary btn-sm mb-5"><%= link_to "削除","book_review", method: :delete, data: {confirm: "Are you sure?"} %></button>
                     <button class="btn btn-outline-warning btn-sm mb-5"><%= link_to "更新", edit_book_review_path(@book,review) %></button>

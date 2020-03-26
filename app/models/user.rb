@@ -7,4 +7,8 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   has_one_attached :image
   has_many :reviews
+  
+  def thumbnail
+    return self.image.variant(resize: '50x70')
+  end
 end
