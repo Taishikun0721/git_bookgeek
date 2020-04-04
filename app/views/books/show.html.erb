@@ -4,26 +4,33 @@
         <h2 style="margin:30px;"><%= @book.title %></h2>
     </div>
     <div class="col-4" style="height:30vh;width:100%;">
-        <div class="card" style="width:70%;">
-            <div class="card-boby">
-                <h2 class="card-title">Book's detail</h2>
-                <p class="card-text" style="word-break:break-all;">
-                    <%= @book.introduction %>
-                </p>
-            </div>
-            <div class="card-footer">本投稿日時：<%= @book.created_at %></div>
-        </div>
         <h2 class="text-left"style="margin-top:30px;margin-bottom:50px;"><%= link_to "Review to#{ @book.title}",new_book_review_path(@book) %></h2>
         <h2 class="text-left border-bottom mb-5">🍀みんなのレビュー</h2>
         <ul class="text-left botrder-bottom mb-3">
             <% @book.reviews.each do |review| %>
                 <li>
                     <h3 class="text-left border-bottom border-info"><%= image_tag review.user.thumbnail, :class => 'rounded-circle' %><%= review.user.nickname %></h3>
+                     <div id="star-rate-<%= review.id %>"></div>
                     <p><%= review.review %></p>
-                    <button class="btn btn-outline-primary btn-sm mb-5"><%= link_to "削除","book_review", method: :delete, data: {confirm: "Are you sure?"} %></button>
+                    <script>
+                        $('#star-rate-<%= review.id %>').raty({
+                          size     : 36,
+                          starOff:  '<%= asset_path('star-off.png') %>',
+                          starOn : '<%= asset_path('star-on.png') %>',
+<<<<<<< HEAD
+                          half: false,
+=======
+                          half: true,
+>>>>>>> create_iine_button
+                          readOnly: true,
+                          score: '<%= review.rate %>',
+                        });
+                    </script>
+                    <button class="btn btn-outline-primary btn-sm mb-5"><%= link_to "削除", book_review_path(@book,review), method: :delete, data: {confirm: "Are you sure?"} %></button>
                     <button class="btn btn-outline-warning btn-sm mb-5"><%= link_to "更新", edit_book_review_path(@book,review) %></button>
                 </li>
             <% end %>
         </ul>
     </div>  
 </div>    
+

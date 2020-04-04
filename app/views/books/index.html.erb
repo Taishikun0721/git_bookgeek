@@ -15,7 +15,20 @@
     <% @books.each do |book| %>
         <div class="col-3" style="height:300px;text-align:center;">
             <a href=<%="/books/#{book.id}" %>><img class="d-block mx-auto"src='<%= book.image_url %>'></a>
-            <p><%= book.title %></p>
+            <span><%= book.title %></span>
+            <% if book.reviews.present? %>
+                <div id="star-rate-<%= book.id %>">評価：</div>
+                <script>
+                    $('#star-rate-<%= book.id %>').raty({
+                    size     : 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    half: false,
+                    readOnly: true,
+                    score: '<%= book.reviews.average(:rate).round %>',
+                    });
+                </script>
+            <% end %>
         </div>
     <% end %>
 </div>

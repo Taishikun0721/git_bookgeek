@@ -1,8 +1,13 @@
 <div class="row">
     <div class="col-12" style="margin-top:50px;">
-        <h1 class="text-center">レビューを投稿する</h1>
+        <h1 class="text-center mb-4">レビューを投稿する</h1>
         <div class="text-center">
             <%= form_for [@book,@review] do |f| %>
+                
+                <div class="field" id="star">
+                    <%= f.label :評価する %>
+                    <%= f.hidden_field :rate, id: :review_star %>
+                </div>
                 <div style="margin-top:30px; border-radius:5px;">
                     <%= f.text_area :review, placeholder: "レビューを入力してね",:size =>"45x10"%>
                 </div>
@@ -13,3 +18,12 @@
         </div>
     </div>
 </div>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[rate]' 
+});
+</script>

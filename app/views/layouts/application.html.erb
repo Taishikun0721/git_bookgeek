@@ -24,5 +24,13 @@
     <div class="navbar navbar-expand nabvar-dark bg-dark fixed-bottom">
       <a href="/" class="navbar-brand text-white ml-auto mr-auto">©Inokuchi Taishiro</a>
     </div>
+    <script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[rate]' 
+});
+</script>
   </body>
 </html>
