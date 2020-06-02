@@ -10,6 +10,7 @@ gem 'mysql2', '>= 0.5.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
+# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -69,3 +70,4 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'rspec-rails'
 gem 'factory_bot_rails', '~> 4.11'
+gem 'counter_culture'
