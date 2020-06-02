@@ -1,6 +1,6 @@
 <div id="like-buttons">
 <% if user_signed_in? %>
-  <% if @book.like_user(@book.id,current_user.id) %>
+  <% if @book.like_user(current_user.id) %>
     <%= link_to book_like_path(@book,@likes), method: :delete, id: "like-button", data: {"turbolinks" => false}, remote: true do %>
       <div class="heart-red"></div>
     <% end %>
