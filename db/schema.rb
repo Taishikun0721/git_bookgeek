@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_04_04_050237) do
-=======
-ActiveRecord::Schema.define(version: 2020_03_27_003737) do
->>>>>>> create_iine_button
+ActiveRecord::Schema.define(version: 2020_06_02_061216) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_003737) do
     t.datetime "updated_at", null: false
     t.text "image_url"
     t.integer "likes_count"
+    t.integer "reviews_count", default: 0, null: false
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -6,7 +6,7 @@
     </div>
     <div class="col-4" style="height:30vh;width:100%;">
         <h2 class="text-left"style="margin-top:30px;margin-bottom:50px;"><%= link_to "Review to#{ @book.title}",new_book_review_path(@book) %></h2>
-        <h2 class="text-left border-bottom mb-5">🍀みんなのレビュー</h2>
+        <h2 class="text-left border-bottom mb-5"><h3>合計<%= @book.reviews_count %>件のレビューがあります</h3></h2>
         <ul class="text-left botrder-bottom mb-3">
             <% @book.reviews.each do |review| %>
                 <li>
