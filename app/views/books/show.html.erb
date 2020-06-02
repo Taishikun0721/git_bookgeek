@@ -2,6 +2,7 @@
     <div class="col-6 text-center">
         <img class="image-fluid" src=<%= @book.image_url %> style="width:70%;">
         <h2 style="margin:30px;"><%= @book.title %></h2>
+        <%= render partial: 'likes/like' %>
     </div>
     <div class="col-4" style="height:30vh;width:100%;">
         <h2 class="text-left"style="margin-top:30px;margin-bottom:50px;"><%= link_to "Review to#{ @book.title}",new_book_review_path(@book) %></h2>
@@ -17,11 +18,7 @@
                           size     : 36,
                           starOff:  '<%= asset_path('star-off.png') %>',
                           starOn : '<%= asset_path('star-on.png') %>',
-<<<<<<< HEAD
                           half: false,
-=======
-                          half: true,
->>>>>>> create_iine_button
                           readOnly: true,
                           score: '<%= review.rate %>',
                         });

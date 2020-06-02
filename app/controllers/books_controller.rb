@@ -8,6 +8,7 @@ class BooksController < ApplicationController
     
     def show
         @book = Book.find(params[:id])
+        @likes = Like.where(book_id: params[:book_id])
     end
     
     def search

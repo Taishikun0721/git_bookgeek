@@ -1,5 +1,24 @@
-<% if user_signd_in? %>
-    <% if Book.like_user(current_user.id) %>
-        
+<div id="like-buttons">
+<% if user_signed_in? %>
+  <% if @book.like_user(@book.id,current_user.id) %>
+    <%= link_to book_like_path(@book,@likes), method: :delete, id: "like-button", data: {"turbolinks" => false}, remote: true do %>
+      <div class="heart-red"></div>
     <% end %>
-<% end %> 
+      <span style="height:100px;">
+        <%= @book.likes_count %>
+      </span>
+  <% else %>
+    <%= link_to book_likes_path(@book), method: :post, id: "like-button",data: {"turbolinks" => false}, remote: true do %>
+      <div class="heart-gray"></div>
+      <span style="height:100px;">
+        <%= @book.likes_count %>
+      </span>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="heart-gray"></div>
+    <span style="height:100px;">
+      <%= @book.likes_count %>
+    </span>
+<% end %>
+</div>
